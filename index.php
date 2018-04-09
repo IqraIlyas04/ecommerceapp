@@ -125,8 +125,9 @@ $products=$db_handler->get_all_prods();
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div id="modal-body" class="modal-body">
-          <input class="form-control" placeholder="Username" name="loginname">
-          <input class="form-control" placeholder="Password" name="loginname">
+          <p id="demo"></p>
+    <!--       <input class="form-control" placeholder="Username" name="loginname">
+          <input class="form-control" placeholder="Password" name="loginname"> -->
         </div>
 
       </div>
