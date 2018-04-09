@@ -41,8 +41,8 @@ $products=$db_handler->get_all_prods();
                	<li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa faw fa-user"></i><span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="#">Sign Up</a></li>
-                        <li><a href="#">Log In</a></li>
+                        <li><a href="">Sign Up</a></li>
+                        <li><a href="#modal-body" data-toggle="modal" data-target="#myModal" >Log In</a></li>
                      </ul>
                   </li>
                   <li class="dropdown">
@@ -124,8 +124,9 @@ $products=$db_handler->get_all_prods();
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <div class="modal-body">
-          <p id="demo"></p>
+        <div id="modal-body" class="modal-body">
+          <input class="form-control" placeholder="Username" name="loginname">
+          <input class="form-control" placeholder="Password" name="loginname">
         </div>
 
       </div>
