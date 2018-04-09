@@ -9,10 +9,8 @@
    $conn = $db->connect();
    
    $db_handler = new DB_HANDLER($conn);
-
-
+//Get all products from database
 $products=$db_handler->get_all_prods();
-
 ?>
 
 <!DOCTYPE html>
@@ -84,9 +82,9 @@ $products=$db_handler->get_all_prods();
     <div class="container">
 	    <div class="row">
 	    	<?php
-for($i=0; $i<count($products); $i++)
-{
-?>
+		for($i=0; $i<count($products); $i++)
+		{
+		?>
 	        <!-- Card Projects -->
 	        <div class="col-md-3">
 	            <div class="card">
@@ -108,7 +106,7 @@ for($i=0; $i<count($products); $i++)
 			</div>	
 			<?php
 		}
-			?>	   
+		?>	   
 	    </div>
 	</div>
 </body>
@@ -118,7 +116,7 @@ for($i=0; $i<count($products); $i++)
 	<p>© Copyright Mini Ecommerce. All Rights Reserved</p>
 </div>
 </footer>
-
+//Modal
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -141,6 +139,7 @@ for($i=0; $i<count($products); $i++)
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      //This code is for add/remove buttons in cart
       <script>
       	$(document).on('click', ".add-to-cart", function(e)
       	{
