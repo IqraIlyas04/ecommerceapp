@@ -129,6 +129,7 @@ for($i=0; $i<count($products); $i++)
         <div id="modal-body" class="modal-body">
           <input class="form-control" placeholder="Username" name="loginname">
           <input class="form-control" placeholder="Password" name="loginname">
+          <input class="form-control" placeholder="Password" name="loginname">
         </div>
 
       </div>
