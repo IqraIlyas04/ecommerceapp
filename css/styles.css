@@ -1,0 +1,95 @@
+.paralax{
+    background: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0)), url('../img/mobile.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    height:100%;
+    background-size:cover;
+    width:100%;
+    padding: 7% 0;
+
+  }
+  .digitallink{
+    color: #fff;
+    margin-bottom: 39px;
+  }
+  .navbar{
+      margin-bottom: 0px !important; 
+  }
+
+form.navbar-form.navbar-centre.navg {
+    padding-top: 45px;
+}
+.input-group.search {
+    width: 55%;
+    margin-top: 12px;
+    margin: 0 auto;
+    padding: 11px;
+}
+.head {
+    margin-top: 44px;
+    text-align: center;
+}
+/**/
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card {
+ margin-top: 91px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    padding-bottom: 35px;
+    width: 82%;
+    background-clip: padding-box;
+}
+.card span.card-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.card .card-image {
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+    width: 215px;
+}
+.card .card-image img {
+  border-radius: 2px 2px 0 0;
+  background-clip: padding-box;
+  position: relative;
+  z-index: -1;
+}
+.card .card-image span.card-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 16px;
+}
+.card .card-content {
+  padding: 16px;
+  border-radius: 0 0 2px 2px;
+  background-clip: padding-box;
+  box-sizing: border-box;
+}
+.card .card-content p {
+  margin: 0;
+  color: inherit;
+      margin-bottom: 20px;
+}
+.card .card-content span.card-title {
+  line-height: 48px;
+}
+footer#footer {
+    background-color: #000;
+    opacity: 0.8;
+    color: #fff;
+    padding-bottom: 15px;
+}
+.foot {
+    text-align: center;
+    font-size: 13px;
+    padding-top: 28px;
+    letter-spacing: 2px;
+}
