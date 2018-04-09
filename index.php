@@ -50,7 +50,7 @@ $products=$db_handler->get_all_prods();
                   <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa faw fa-shopping-cart"></i><span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Note</a></li>
                      </ul>
                   </li>
                </ul>
