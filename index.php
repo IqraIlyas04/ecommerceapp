@@ -1,8 +1,9 @@
 <?php
-<?php 
-   session_start();
+
+   // session_start();
    include_once('includes/db_connect.php');
    include_once('includes/db_handler.php');
+   include_once('includes/utility.php');
    
    $db = new DB_CONNECT();
    $conn = $db->connect();
@@ -90,17 +91,18 @@ for($i=0; $i<count($products); $i++)
 	        <div class="col-md-3">
 	            <div class="card">
 	                <div class="card-image">
-	                    <img class="img-responsive" src="img/mob1.jpg">
+	                	<?php echo $products[$i]['product_id'];?>
+	                    <img class="img-responsive" src="<?php echo $products[$i]['product_image'];?>">
 	                </div>               
 	                <div class="card-content">
-	                    <p style=" margin-bottom: 20px;"><b>Samsung Galaxy S8 plus</b></p>
-	                    <p style=" margin-bottom: 20px;">Lorem Ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum....</p>
+	                    <p style=" margin-bottom: 20px;"><b><?php echo $products[$i]['product_name'];?></b></p>
+	                    <p style=" margin-bottom: 20px;"><?php echo $products[$i]['product_desc'];?></p>
 	                </div>  
 	                <div class="col-md-6">                          
-	                     <p><b>$</b> 1330</p>                    
+	                     <p><b>$</b><?php echo $products[$i]['product_price'];?></p>                    
 	                </div>
-	                <div class="col-md-6">                          
-	                    <button  class="add-to-cart btn btn-success" data-toggle="modal" data-target="#myModal" />Add</button>
+	                <div class="col-md-6" style="margin-top: -8px;">                          
+	                    <button  class="add-to-cart btn btn-success" style="float: right;" data-toggle="modal" data-target="#myModal" />Add</button>
 	                </div>
 	        	</div>
 			</div>	
