@@ -124,8 +124,8 @@
         </div>
         <div id="modal-body" class="modal-body">
           <p id="demo"></p>
-          <input class="form-control" placeholder="Username" name="loginname">
-          <input class="form-control" placeholder="Password" name="loginname">
+          <!-- <input class="form-control" placeholder="Username" name="loginname">
+          <input class="form-control" placeholder="Password" name="loginname"> -->
         </div>
 
       </div>
