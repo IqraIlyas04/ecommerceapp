@@ -1,6 +1,4 @@
 <?php
-
-   // session_start();
    include_once('includes/db_connect.php');
    include_once('includes/db_handler.php');
    include_once('includes/utility.php');
@@ -9,8 +7,8 @@
    $conn = $db->connect();
    
    $db_handler = new DB_HANDLER($conn);
-//Get all products from database
-$products=$db_handler->get_all_prods();
+  //Get all products from database
+  $products=$db_handler->get_all_prods();
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +46,7 @@ $products=$db_handler->get_all_prods();
                   <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa faw fa-shopping-cart"></i><span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Samsung galaxy s9</a></li>
                      </ul>
                   </li>
                </ul>
@@ -125,6 +123,7 @@ $products=$db_handler->get_all_prods();
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div id="modal-body" class="modal-body">
+          <p id="demo"></p>
           <input class="form-control" placeholder="Username" name="loginname">
           <input class="form-control" placeholder="Password" name="loginname">
           <input class="form-control" placeholder="Password" name="loginname">
