@@ -1,20 +1,21 @@
 <?php
-   session_start();
-   include_once('includes/db_connect.php');
-   include_once('includes/db_handler.php');
-   include_once('includes/utility.php');
-   
-   $db = new DB_CONNECT();
-   $conn = $db->connect();
-   
-   $db_handler = new DB_HANDLER($conn);
-  //Get all products from database
-  $products=$db_handler->get_all_prods();
- 
+session_start();
+include_once('includes/db_connect.php');
+include_once('includes/db_handler.php');
+include_once('includes/utility.php');
 
-  if(isset($_POST['submit']))
+$db = new DB_CONNECT();
+$conn = $db->connect();
+
+$db_handler = new DB_HANDLER($conn);
+
+//Get all products from database
+$products=$db_handler->get_all_prods();
+
+if(isset($_POST['submit']))
 {
   extract($_POST);
+
   //Check if the user exists
   if($db_handler->check_user_exists($username))
   {
@@ -46,7 +47,7 @@
 <html>
    <head>
       <title>Mini Ecommerce App</title>
-      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="css/styles.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
       <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
