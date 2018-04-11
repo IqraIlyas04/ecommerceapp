@@ -175,19 +175,7 @@
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <div id="modal-body" class="modal-body">
           <p id="demo"></p>
-<<<<<<< HEAD
 
-          <input class="form-control" placeholder="Username" name="loginname">
-          <input class="form-control" placeholder="Password" name="loginname">
-          <input class="form-control" placeholder="Password" name="loginname">
-
-
-          <!-- <input class="form-control" placeholder="Username" name="loginname">
-          <input class="form-control" placeholder="Password" name="loginname"> -->
-
-        </div>
-
-=======
           <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -217,7 +205,7 @@
                     </div>
               </div>
          </div>
->>>>>>> feature/login
+
       </div>
     </form>
     </div>
@@ -228,8 +216,9 @@
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      //This code is for add/remove buttons in cart
+      
       <script>
+        //This code is for add/remove buttons in cart
         $(document).on('click', ".add-to-cart", function(e)
         {
           $(this).removeClass("add-to-cart btn btn-success");
