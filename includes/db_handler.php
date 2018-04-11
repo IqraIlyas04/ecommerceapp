@@ -27,6 +27,40 @@ class DB_HANDLER
 	}
 
 
+	public function check_user_exists($username)
+	{
+		$query = "SELECT username FROM users where username = ?";
+		$params= array("s", $username);
+		$result= $this->preparedStatement($this->conn, "check", $query, $params);
+		return $result;
+	}
+
+	public function validate_user($username, $password)
+	{
+		$query = "SELECT * from users where username=? and password=?";
+		$params= array("ss", $username, $password);
+		$result= $this->preparedStatement($this->conn, "check", $query, $params);
+		return $result;
+	}
+
+	public function get_user($username, $password)
+	{
+		$query= "SELECT * from users where username=? and password=?";
+		$params=array("ss", $username, $password);
+		$result= $this->preparedStatement($this->conn, "get", $query, $params);
+		return $result;
+	}
+
+	public function add_user($username, $password)
+	{
+		$query= "INSERT INTO users(username, password)values(?,?)";
+		$params = array('ss', $username, $password);
+		$result= $this->preparedStatement($this->conn, "add", $query, $params);
+		return $result;
+	}
+
+
+
 	//Dynamic prepared statement function to do all add and edit operations
 	function preparedStatement($conn, $type, $stmt, $params)
 	{
