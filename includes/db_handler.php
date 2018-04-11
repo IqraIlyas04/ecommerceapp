@@ -8,6 +8,22 @@ class DB_HANDLER
 		$this->conn = $conn;
 	}
 
+	//get all products to view on page
+	public function get_all_prods()
+	{
+		return $this->get_cust_cols("SELECT * from products");
+	}
+	
+	//add products in cart for add/rem button
+	public function add_product_in_cart($product_id)
+	{
+		$query="INSERT INTO cart (product_id) VALUES (?)";
+		$params=array("i", $product_id);
+		$res=$this->preparedStatement($this->conn, "add", $query, $params);
+	    return $res;
+
+	}
+
 
 	// Existing functions
 	function refValues($arr){
@@ -21,10 +37,6 @@ class DB_HANDLER
 	    return $arr;
 	}
 
-	function get_all_prods()
-	{
-		return $this->get_cust_cols("SELECT * from products");
-	}
 
 
 	//Dynamic prepared statement function to do all add and edit operations

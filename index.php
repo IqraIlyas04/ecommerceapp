@@ -87,7 +87,7 @@
 	        <div class="col-md-3">
 	            <div class="card">
 	                <div class="card-image">
-	                	<?php echo $products[$i]['product_id'];?>
+	                	
 	                    <img class="img-responsive" src="<?php echo $products[$i]['product_image'];?>">
 	                </div>               
 	                <div class="card-content">
@@ -98,7 +98,7 @@
 	                     <p><b>$</b><?php echo $products[$i]['product_price'];?></p>                    
 	                </div>
 	                <div class="col-md-6" style="margin-top: -8px;">                          
-	                    <button  class="add-to-cart btn btn-success" style="float: right;" data-toggle="modal" data-target="#myModal" />Add</button>
+	                    <button class="add-to-cart btn btn-success" style="float: right;" data-toggle="modal" data-target="#myModal" data-prodid="<?php echo $products[$i]['product_id'];?>">Add</button>
 	                </div>
 	        	</div>
 			</div>	
@@ -114,7 +114,7 @@
 	<p>© Copyright Mini Ecommerce. All Rights Reserved</p>
 </div>
 </footer>
-//Modal
+
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -124,8 +124,6 @@
         </div>
         <div id="modal-body" class="modal-body">
           <p id="demo"></p>
-          <!-- <input class="form-control" placeholder="Username" name="loginname">
-          <input class="form-control" placeholder="Password" name="loginname"> -->
         </div>
 
       </div>
@@ -139,8 +137,9 @@
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      //This code is for add/remove buttons in cart
-      <script>
+      <script src="js/ajax_event.js"></script>
+
+     <!--  <script>
       	$(document).on('click', ".add-to-cart", function(e)
       	{
       		$(this).removeClass("add-to-cart btn btn-success");
@@ -158,4 +157,4 @@
 
       	});
 
-      </script>
+      </script> -->
