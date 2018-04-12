@@ -7,25 +7,38 @@ class DB_HANDLER
 	{
 		$this->conn = $conn;
 	}
-
-
-	// Existing functions
-	function refValues($arr){
-	    if (strnatcmp(phpversion(),'5.3') >= 0) //Reference is required for PHP 5.3+
-	    {
-	        $refs = array();
-	        foreach($arr as $key => $value)
-	            $refs[$key] = &$arr[$key];
-	        return $refs;
-	    }
-	    return $arr;
-	}
-
-	function get_all_prods()
+	
+	// get all products
+	public function get_all_prods()
 	{
 		return $this->get_cust_cols("SELECT * from products");
 	}
 
+	//get products based on user id
+	public function get_prod_userid($user_id)
+	{
+		$query="SELECT products.* from products left join cart ON products.product_id=cart.product_id where cart.user_id=?";
+		$params=array("i", $user_id);
+		$result= $this->preparedStatement($this->conn, "get", $query, $params);
+		return $result;
+	}
+
+	// add button for cart
+	public function add_user_prod($product_id, $user_id)
+	{
+		$query="INSERT INTO cart (product_id, user_id) VALUES (?,?)";
+		$params=array("ii", $product_id, $user_id);
+		$result= $this->preparedStatement($this->conn, "add", $query, $params);
+		return $result;
+	}
+	
+	//remove button for cart
+	public function del_user_prod($product_id, $user_id)
+	{
+		$query="DELETE FROM cart where product_id=? and user_id=?";
+		$params=array("ii", $product_id, $user_id);
+		$result= $this->preparedStatement($this->conn, "delete", $query, $params);
+	}
 
 	public function check_user_exists($username)
 	{
@@ -57,6 +70,18 @@ class DB_HANDLER
 		$params = array('ss', $username, $password);
 		$result= $this->preparedStatement($this->conn, "add", $query, $params);
 		return $result;
+	}
+
+	// Existing functions
+	function refValues($arr){
+	    if (strnatcmp(phpversion(),'5.3') >= 0) //Reference is required for PHP 5.3+
+	    {
+	        $refs = array();
+	        foreach($arr as $key => $value)
+	            $refs[$key] = &$arr[$key];
+	        return $refs;
+	    }
+	    return $arr;
 	}
 
 
