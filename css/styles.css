@@ -1,11 +1,6 @@
-<<<<<<< HEAD
+
 .paralax{
     background: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0)), url('../images/mobile.jpg');
-=======
-.paralax
-{
-    background: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0)), url('../img/mobile.jpg');
->>>>>>> 69348382f258c787467a6d64c509b463c3c386f1
     background-attachment: fixed;
     background-position: center;
     height:100%;
