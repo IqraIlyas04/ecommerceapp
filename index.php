@@ -92,7 +92,7 @@
                   <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa faw fa-shopping-cart"></i><span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
+                        <li><a href="#modal-cart" data-toggle="modal" data-target="#myModal">Action</a></li>
                      </ul>
                   </li>
                </ul>
@@ -172,22 +172,10 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+       
         <div id="modal-body" class="modal-body">
-          <p id="demo"></p>
-<<<<<<< HEAD
-
-          <input class="form-control" placeholder="Username" name="loginname">
-          <input class="form-control" placeholder="Password" name="loginname">
-          <input class="form-control" placeholder="Password" name="loginname">
-
-
-          <!-- <input class="form-control" placeholder="Username" name="loginname">
-          <input class="form-control" placeholder="Password" name="loginname"> -->
-
-        </div>
-
-=======
+           <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+          <p id=""></p>
           <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -217,9 +205,42 @@
                     </div>
               </div>
          </div>
->>>>>>> feature/login
+         </form>
       </div>
-    </form>
+
+       <div id="modal-cart" class="modal-cart">
+          <p id=""></p>
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-user"></i>
+                        </span> 
+                        <input class="form-control" placeholder="Username" name="username" type="text" autofocus>
+                      </div>
+                    </div>
+                </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-lock"></i>
+                        </span>
+                        <input class="form-control" placeholder="Password" name="password" type="password">
+                      </div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-3" style="float: right; margin-top: 10px;">
+                    <div class="form-group">
+                      <input type="submit" class="btn btn-md btn-primary btn-block" name="submit" value="Sign in">
+                    </div>
+              </div>
+         </div>
+      </div>
+
     </div>
   </div>
 </div>
