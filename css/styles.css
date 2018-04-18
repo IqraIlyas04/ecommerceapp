@@ -1,4 +1,37 @@
 
+
+     .cart-head{
+      padding: 7px;
+      background-color: #fff;
+      border-radius: 3px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.5;
+     }
+
+     .cart-body{
+      padding: 5px;
+      overflow-y:scroll; 
+      overflow-x:hidden;
+      height:250px;
+     }
+
+     .btn-outline-danger{
+      color: #dc3545;
+      background-color: transparent;
+      background-image: none;
+      border-color: #dc3545;
+     }
+
+     .truncate{
+      white-space: nowrap; 
+      width: 90px; 
+      overflow: hidden;
+      text-overflow: ellipsis;
+     }
+     
+
 .paralax{
     background: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0)), url('../images/mobile.jpg');
     background-attachment: fixed;
@@ -22,85 +55,456 @@ form.navbar-form.navbar-centre.navg
 {
     padding-top: 45px;
 }
-.input-group.search {
+.input-group.search 
+{
     width: 55%;
     margin-top: 12px;
     margin: 0 auto;
     padding: 11px;
 }
-.head {
+.head 
+{
     margin-top: 44px;
     text-align: center;
 }
-/**/
-.card {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-}
 
-.card {
- margin-top: 91px;
+
+.card 
+{
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin-top: 40px;
     box-sizing: border-box;
     border-radius: 2px;
     padding-bottom: 35px;
     width: 82%;
     background-clip: padding-box;
 }
-.card span.card-title {
-    color: #fff;
-    font-size: 24px;
-    font-weight: 300;
-    text-transform: uppercase;
+
+
+.card .card-image 
+{
+    position: relative;
+    overflow: hidden;
+    height: 134px;
+    width: 150px;
+    margin: auto;
+       
 }
 
-.card .card-image {
-  position: relative;
-  overflow: hidden;
-  height: 180px;
-    width: 215px;
-}
-.card .card-image img {
-  border-radius: 2px 2px 0 0;
-  background-clip: padding-box;
-  position: relative;
-  z-index: -1;
-}
-.card .card-image span.card-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 16px;
-}
-.card .card-content {
-  padding: 16px;
-  border-radius: 0 0 2px 2px;
-  background-clip: padding-box;
-  box-sizing: border-box;
+
+.card .card-content 
+{
+    padding: 16px;
+    border-radius: 0 0 2px 2px;
+    background-clip: padding-box;
+    box-sizing: border-box;
+    margin-bottom: 9px;
+    margin-top: 10px;
+    color: #000000;
+    text-decoration: none;
 
 }
-.card .card-content p {
-  margin: 0;
-  color: inherit;
-  margin-bottom: 20px;
+
+.card-content 
+{
+    height: 200px;
+    margin-top: 30px;
+    padding: 0px 20px 0px 0px;
 }
-.card .card-content span.card-title {
-  line-height: 48px;
-}
-footer#footer {
+
+footer#footer 
+{
     background-color: #000;
     opacity: 0.8;
     color: #fff;
     padding-bottom: 15px;
 }
-.foot {
+
+.foot 
+{
     text-align: center;
     font-size: 13px;
     padding-top: 28px;
     letter-spacing: 2px;
 }
-.card-content {
-    height: 200px;
+
+
+.show-more
+{
+    width: 400px;
+    height: 40px;
+    color: brown;
+    background-color: brown;
+    border-radius: 3px;
+    color: white;
+    border: none;
+    font-size: 17px;
+    margin-top: 60px;
 }
 
-.ta-center{
-  text-align: center;
+.btn-outline-info 
+{
+    color: #17a2b8;
+    background-color: transparent;
+    background-image: none !important;
+    border-color: #17a2b8 !important;
+}
+
+.btn-outline-danger 
+{
+    color: #ff4d4d;
+    background-color: transparent;
+    background-image: none !important;
+    border-color: #ff4d4d !important;
+}
+
+img.pics.img-responsive 
+{
+    height: 250px; 
+    width: 250px;
+}
+
+p.pro_name
+{
+    font-size: 18px;
+    padding-bottom: 16px;
+    margin-top: 48px;
+}
+
+p.desc 
+{
+    font-size: 14px;
+}
+
+p.p_price
+{
+    margin-top: 59px;  
+}
+
+button.a.add-to-cart.btn.btn-outline-info 
+{
+    margin-left: 16px;
+}
+
+button.r.rem-from-cart.btn.btn-outline-danger
+{
+    margin-left: 16px;
+}
+
+@media only screen and (max-width: 442px) and (min-width: 320px)
+{
+    .card .card-image 
+    {
+        position: relative;
+        overflow: hidden;
+        height: 134px;
+        width: 125px;
+        margin: auto;
+        padding-top: 12px;
+    }
+
+    .show-more 
+    {
+        width: 280px;
+        height: 40px;
+        color: brown;
+        background-color: brown;
+        border-radius: 3px;
+        color: white;
+        border: none;
+        font-size: 17px;
+        margin-top: 60px;
+    }
+
+    .card 
+    {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        margin-top: 18px;
+        box-sizing: border-box;
+        border-radius: 2px;
+        padding-bottom: 35px;
+        width: 100%;
+        background-clip: padding-box;
+    }
+
+    .digitallink 
+    {
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 19px;
+    }
+
+    .head h1
+    {
+        font-size: 24px;
+    }
+
+    .card .card-content 
+    {
+        padding: 13px;
+        border-radius: 0 0 2px 2px;
+        background-clip: padding-box;
+        box-sizing: border-box;
+        margin-top: 10px;
+        color: #000000;
+        text-decoration: none;
+        font-size: 12px;
+        margin-bottom: -35px;
+    }
+
+    .price p
+    {
+        font-size: 12px;
+        margin-left: -6px;
+
+    }
+
+    button.rem-from-cart.btn.btn-outline-danger
+    {
+        float: right;
+        font-size: 9px;
+        width: 68px;
+        margin-right: -8px;
+    }
+    button.add-to-cart.btn.btn-outline-info
+    {
+        float: right;
+        font-size: 9px;
+        width: 68px;
+        margin-right: -8px;
+    }
+    .card .card-content p.desc
+    {
+        font-size: 10px;
+    }
+
+    .foot 
+    {
+        text-align: center;
+        font-size: 8px;
+        padding-top: 28px;
+        letter-spacing: 2px;
+    }
+
+    img.pics.img-responsive 
+    {
+        height: 135px;
+    }
+
+    p.pro_name
+    {
+        font-size: 15px;
+        padding-bottom: 11px;
+    }
+
+    p.desc 
+    {
+        font-size: 12px;
+    }
+
+    button.a.add-to-cart.btn.btn-outline-info 
+    {
+        margin-right: -26px;
+        margin-top: -40px;
+    }
+
+    p.p_price
+    {
+        margin-top: 15px;  
+    }
+
+    button.r.rem-from-cart.btn.btn-outline-danger
+    {
+        margin-right: -26px;
+        margin-top: -40px;
+    }
+
+}
+
+@media only screen and (max-width: 600px) and (min-width: 443px)
+{
+    .card .card-image 
+    {
+        position: relative;
+        overflow: hidden;
+        height: 134px;
+        width: 125px;
+        margin: auto;
+        padding-top: 12px;
+    }
+
+    .show-more 
+    {
+        width: 300px;
+        height: 40px;
+        color: brown;
+        background-color: brown;
+        border-radius: 3px;
+        color: white;
+        border: none;
+        font-size: 17px;
+        margin-top: 60px;
+    }
+
+    .card 
+    {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        margin-top: 18px;
+        box-sizing: border-box;
+        border-radius: 2px;
+        padding-bottom: 35px;
+        width: 100%;
+        background-clip: padding-box;
+    }
+
+    .digitallink 
+    {
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 26px;
+    }
+
+    .head h1
+    {
+        font-size: 28px;
+    }
+
+    .card .card-content 
+    {
+        padding: 13px;
+        border-radius: 0 0 2px 2px;
+        background-clip: padding-box;
+        box-sizing: border-box;
+        margin-top: 10px;
+        color: #000000;
+        text-decoration: none;
+        font-size: 13px;
+        margin-bottom: -35px;
+    }
+    .price p
+    {
+        font-size: 12px;
+        margin-left: -6px;
+    }
+
+    button.rem-from-cart.btn.btn-outline-danger
+    {
+        float: right;
+        font-size: 11px;
+        width: 70px;
+       
+    }
+    button.add-to-cart.btn.btn-outline-info
+    {
+        float: right;
+        font-size: 11px;
+        width: 77px;
+    }
+
+    .card .card-content p.desc
+    {
+        font-size: 12px;
+    }
+
+    .foot 
+    {
+        text-align: center;
+        font-size: 11px;
+        padding-top: 28px;
+        letter-spacing: 2px;
+    }
+
+    img.pics.img-responsive 
+    {
+        height: 178px;
+    }
+
+    p.pro_name
+    {
+        font-size: 16px;
+        padding-bottom: 11px;
+
+    }
+
+    p.desc 
+    {
+        font-size: 14px;
+    }
+
+    button.a.add-to-cart.btn.btn-outline-info 
+    {
+        margin-right: -18px;
+        margin-top: -28px;
+        font-size: 13px;
+        width: 87px;
+    }
+
+    button.r.rem-from-cart.btn.btn-outline-danger
+    {
+        margin-right: -18px;
+        margin-top: -28px;
+        font-size: 13px;
+        width: 87px;
+    }
+
+    p.p_price
+    {
+        margin-top: 26px;
+        font-size: 14px;
+    }
+
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px)
+{
+
+    .card .card-content 
+    {
+        margin-bottom: 35px;
+    }
+
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px)
+{
+    img.pics.img-responsive 
+    {
+        height: 205px;
+    }
+
+    p.pro_name
+    {
+        font-size: 16px;
+        padding-bottom: 11px;
+
+    }
+
+    p.desc 
+    {
+        font-size: 15px;
+    }
+
+    button.a.add-to-cart.btn.btn-outline-info 
+    {
+        margin-left: 17px;
+        margin-top: -28px;
+        font-size: 13px;
+        width: 87px;
+    }
+
+    button.r.rem-from-cart.btn.btn-outline-danger
+    {
+        margin-left: 17px;
+        margin-top: -28px;
+        font-size: 13px;
+        width: 87px;
+    }
+
+    p.p_price
+    {
+        font-size: 17px;
+        margin-left: 0px;
+        margin-top: 37px;
+    } 
+
 }
