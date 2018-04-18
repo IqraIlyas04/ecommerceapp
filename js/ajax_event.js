@@ -33,33 +33,67 @@ $(document).on('click', '.add-to-cart' , function(e)
 	var prod_id=$(this).data('prodid');
 	var userid=$("#user_id").val();
 
-	$.ajax(
+	if(userid <= 0)
 	{
-		type:'POST',
-		url: 'includes/ajax_event.php',
-		data:
-		{
-			action: "add_to_cart",
-			product_id: prod_id,
-			user_id: userid
-		},
-		success: function(html)
-		{
-			
-		},
-		error: function(errormesssage)
-		{
-            alert(errormesssage.responseText);
-        }
 
-	});
-	$(this).removeClass("add-to-cart btn btn-success");
-    $(this).addClass("rem-from-cart btn btn-danger");
+		$("#remove").hide();
+		$("#add").hide();
+		$("#random_products").hide();
+		$("#products_view").hide();
+		$("#login").show();
+
+	}
+	else
+	{
+
+		$.ajax(
+		{
+			type:'POST',
+			url: 'includes/ajax_event.php',
+			data:
+			{
+				action: "add_to_cart",
+				product_id: prod_id,
+				user_id: userid
+			},
+			success: function(html)
+			{
+					
+			},
+			error: function(errormesssage)
+			{
+	            alert(errormesssage.responseText);
+	        }
+
+		});
+
+	$(this).removeClass("add-to-cart btn btn-outline-info");
+    $(this).addClass("rem-from-cart btn btn-outline-danger");
     $(this).html("Remove");
-    document.getElementById("demo").innerHTML="Added to Cart";
-
+    $("#remove").hide();
+	$("#add").show();
+	$("#random_products").show();
+	$("#products_view").hide();
+	$("#login").hide();
+}
 });
 
+$(document).on('click', '.login' , function(e)
+{
+	var userid=$("#user_id").val();
+
+	if(userid <= 0)
+	{
+
+	$("#remove").hide();
+	$("#add").hide();
+	$("#random_products").hide();
+	$("#products_view").hide();
+	$("#login").show();
+
+	}
+
+});
 //onclick function remove from cart
 
 $(document).on('click', '.rem-from-cart' , function(e)
@@ -80,6 +114,8 @@ $(document).on('click', '.rem-from-cart' , function(e)
 		success: function(html)
 		{
 			
+			
+			
 		},
 		error: function(errormesssage)
 		{
@@ -87,11 +123,175 @@ $(document).on('click', '.rem-from-cart' , function(e)
         }
 
 	});
-	$(this).removeClass("rem-from-cart btn btn-danger");
-    $(this).addClass("add-to-cart btn btn-success");
-    $(this).html("Add");
-    document.getElementById("demo").innerHTML= "Removed from Cart";
 
+	$(this).removeClass("rem-from-cart btn btn-outline-danger");
+    $(this).addClass("add-to-cart btn btn-outline-info");
+    $(this).html("Add to cart");
+    
+$("#remove").show();
+$("#add").hide();
+$("#products_view").hide();
+$("#random_products").show();
+$("#login").hide();
+});
+//live search
+
+$(document).ready(function(e)
+{
+    $("#search_text").keyup(function(e)
+    {
+      
+        var txt = $("#search_text").val();
+        var userid=$("#user_id").val();
+
+        if(txt != '')
+		{
+
+			 $.ajax({
+	    		type: "POST",
+	    		url: "includes/ajax_event.php",
+	    		data: 
+	    		{
+	    			search: txt,
+	    			user_id: userid,
+	    			action: "live_search"	
+	    		},
+
+	    		success: function(data)
+	    		{
+	    			$("#prod_grid").html(data);
+	    		
+	    		}
+	    	});
+		}
+		else
+		{
+			$("#prod_grid").html(data);
+		}
+
+    });
 });
 
 
+//load more button
+$showFrom=0;
+$showCount=4;
+	
+$(document).on('click', '.show-more' , function(e)
+{
+	var txt = $("#search_text").val();
+	var userid=$("#user_id").val();
+	$showFrom += $showCount;
+
+	$.ajax({
+		type:'POST',
+		url: 'includes/ajax_event.php',
+		data:{
+			search: txt,
+			action: "live_search_more",
+			showFrom: $showFrom,
+			showCount: $showCount,			
+			user_id: userid
+
+		},
+		success: function(data)
+		{
+				$('.load-post').html("Show More");
+ 				$('.grid').append(data);
+				$('.pgrid').append(data);
+				
+		},
+
+		error: function(errormesssage)
+		{
+            alert(errormesssage.responseText);
+        }
+			
+	});
+});
+
+
+
+// function for generating random products
+$(document).on('click', '.rem-from-cart' , function(e)
+{
+	var userid=$("#user_id").val();
+	$.ajax({
+		type:'POST',
+		url:'includes/ajax_event.php',
+		data:
+		{
+			action: "gen_random_products",
+			user_id: userid
+		},
+		success: function(html)
+		{
+			document.getElementById("random_products").innerHTML = html;
+		},
+
+		error: function(errormesssage)
+		{
+            alert(errormesssage.responseText);
+        }
+	});
+});
+
+$(document).on('click', '.add-to-cart' , function(e)
+{
+	var userid=$("#user_id").val();
+	$.ajax({
+		type:'POST',
+		url:'includes/ajax_event.php',
+		data:
+		{
+			action: "gen_random_products",
+			user_id: userid
+		},
+		success: function(html)
+		{
+			document.getElementById("random_products").innerHTML = html;
+		},
+
+		error: function(errormesssage)
+		{
+            alert(errormesssage.responseText);
+        }
+	});
+});
+
+$(document).on('click', '.view_card' , function(e)
+{
+	var prod_id=$(this).data('productid');
+ 	var userid=$("#user_id").val();
+
+ 	$.ajax({
+
+		type:'POST',
+		url:'includes/ajax_event.php',
+		data:
+		{
+			action: "view_products",
+			user_id: userid,
+			product_id: prod_id
+		},
+		success: function(html)
+		{
+			document.getElementById("products_view").innerHTML = html;
+		},
+
+		error: function(errormesssage)
+		{
+            alert(errormesssage.responseText);
+        }
+
+
+
+
+	});
+$("#remove").hide();
+$("#add").hide();
+$("#random_products").hide();
+$("#products_view").show();
+$("#login").hide();
+
+});

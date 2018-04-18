@@ -11,7 +11,7 @@ class DB_HANDLER
 	// get all products
 	public function get_all_prods()
 	{
-		return $this->get_cust_cols("SELECT * from products");
+		return $this->get_cust_cols("SELECT * from products limit 0,4");
 	}
 
 	//get products based on user id
@@ -19,6 +19,14 @@ class DB_HANDLER
 	{
 		$query="SELECT products.* from products left join cart ON products.product_id=cart.product_id where cart.user_id=?";
 		$params=array("i", $user_id);
+		$result= $this->preparedStatement($this->conn, "get", $query, $params);
+		return $result;
+	}
+
+	public function get_prod_id($product_id)
+	{
+		$query="SELECT * from products where product_id=?";
+		$params=array("i", $product_id);
 		$result= $this->preparedStatement($this->conn, "get", $query, $params);
 		return $result;
 	}
