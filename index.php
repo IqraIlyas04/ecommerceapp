@@ -14,7 +14,7 @@
   if(isset($_POST['submit']))
   {
     extract($_POST);
-   
+ 
      //Check if the user exists
     if($db_handler->check_user_exists($username))
     {
@@ -65,7 +65,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="logout.php">Logout</a></li>
+                 <?php if(isset($_SESSION['username']))
+                        {
+                          echo '<li><a href="logout.php">Logout</a></li>';
+                        }
+                       else
+                       {
+                         echo '';
+                      }?>
                   <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                      <span class="nav-line-1">Hello, <?php
@@ -92,9 +99,9 @@
                      </ul>
                   </li>
                   <li class="dropdown">
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa faw fa-shopping-cart"></i><span class="caret"></span></a>
-                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
+                     <a id="cart_btn" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa faw fa-shopping-cart"></i><span class="caret"></span></a>
+                     <ul class="dropdown-menu cart" style="width:300px; padding: 0px 11px;" id="carts">
+                     
                      </ul>
                   </li>
                </ul>
@@ -107,25 +114,46 @@
          <div class="container">
             <div class="col-md-12 text-center">
                <h1 class="digitallink">Looking for mobile phones?</h1>
-               <div class="row">
-                  <div class="input-group search">
-                     <input type="text" class="form-control" placeholder="Search for..." style="padding: 20px;">
-                     <span class="input-group-btn">
-                     <button class="btn btn-default" type="button" style="padding: 10px;"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                     </span>
-                  </div>
-                  <!-- /input-group -->
-               </div>
+               
+               </div> 
             </div>
          </div>
-      </div>
+      
       <div class="container">
          <div class="head">
             <h1>Special Offers</h1>
             <hr>
          </div>
+       </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2" style="padding-top: 20px;">
+            <label style="letter-spacing: 1px; font-weight: 500;">Search</label>
+            <div class="input-group search">
+                <input type="text" class="form-control" placeholder="Search for..." style="padding: 16px;">
+                  <span class="input-group-btn">
+                     <button class="btn btn-default" type="button" style="padding: 6px;"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                  </span>
+            </div><br>
+            <div class="form-group">
+              <label style="letter-spacing: 1px; font-weight: 500;">Filter By Brand</label>
+                <select name="brand_id" id="brand_name" class="form-control"> 
+                  <option>-- Select Brand --</option>
+                  <?php
+                    $brand = $db_handler->get_all_brands();
+                    for($i=0; $i<count($brand); $i++)
+                    {?>
+                      <option value="<?php echo $brand[$i]['brand_id'];?>"><?php echo $brand[$i]['brand_name'];?></option>
+                      <?php 
+                    }
+                    ?>
+                </select>
+            </div>
+          </div>
+          <div class="col-md-10" id="prod_grid">
+          </div>
+        </div>
       </div>
-      <div id="prod_grid"></div>
       <br><br><br><br>
       <footer id="footer">
          <div class="foot">

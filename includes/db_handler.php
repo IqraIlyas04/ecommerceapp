@@ -40,6 +40,7 @@ class DB_HANDLER
 		$result= $this->preparedStatement($this->conn, "delete", $query, $params);
 	}
 
+	//check user exists for login/signup
 	public function check_user_exists($username)
 	{
 		$query = "SELECT username FROM users where username = ?";
@@ -48,6 +49,7 @@ class DB_HANDLER
 		return $result;
 	}
 
+	//validate user for login
 	public function validate_user($username, $password)
 	{
 		$query = "SELECT * from users where username=? and password=?";
@@ -56,6 +58,7 @@ class DB_HANDLER
 		return $result;
 	}
 
+	//fetch user
 	public function get_user($username, $password)
 	{
 		$query= "SELECT * from users where username=? and password=?";
@@ -64,6 +67,7 @@ class DB_HANDLER
 		return $result;
 	}
 
+	//add new user
 	public function add_user($username, $password)
 	{
 		$query= "INSERT INTO users(username, password)values(?,?)";
@@ -71,6 +75,35 @@ class DB_HANDLER
 		$result= $this->preparedStatement($this->conn, "add", $query, $params);
 		return $result;
 	}
+
+	//fetch products based on user in the shoping cart
+	public function get_user_prod($user_id)
+	{
+		$query="SELECT products.*, users.username from products
+				LEFT JOIN cart on products.product_id=cart.product_id
+				LEFT JOIN users on cart.user_id= users.user_id where users.user_id=? ";
+		$params=array("i", $user_id);
+		$result= $this->preparedStatement($this->conn, "get", $query, $params);
+		return $result;
+	}
+
+	//get brands
+	public function get_all_brands()
+	{
+	 	return $this->get_cust_cols("SELECT * FROM brand ORDER BY brand_name ASC");
+	}
+
+	
+	//get products based on brand
+	public function get_prod_by_brand($brand_id)
+	{
+		$query="SELECT products.*, brand.brand_name from products
+		LEFT JOIN brand on products.brand_id=brand.brand_id where products.brand_id=?";
+		$params=array("i", $brand_id);
+		$result= $this->preparedStatement($this->conn, "get", $query, $params);
+		return $result;
+	}
+
 
 	// Existing functions
 	function refValues($arr){
